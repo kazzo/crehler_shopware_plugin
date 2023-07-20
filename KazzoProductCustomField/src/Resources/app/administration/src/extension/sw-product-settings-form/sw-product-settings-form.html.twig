@@ -1,0 +1,12 @@
+{% block sw_product_settings_form_content %}
+    {% parent %}
+	
+    	<sw-container columns="repeat(auto-fit, minmax(250px, 1fr))" gap="0px 30px">
+        	<sw-text-field 
+        		label="Custom text"
+        		v-model="product.extensions['productCustomFieldExtension'].value"
+        	>
+        	</sw-text-field>        
+    	</sw-container>
+    
+{% endblock %}

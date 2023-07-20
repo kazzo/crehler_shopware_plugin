@@ -1,0 +1,37 @@
+{
+	"name": "kazzo/product-custom-field",
+	"description": "Plugin for additional field in product",
+	"version": "1.0.0",
+	"type": "shopware-platform-plugin",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Mariusz Kaźmierczak"
+		}
+	],
+
+	"require": {
+		"shopware/core": "6.5.*"
+	},
+  
+	"autoload": {
+		"psr-4": {
+			"Kazzo\\ProductCustomField\\": "src/"
+		}
+	},
+
+	"extra": {
+		"shopware-plugin-class": "Kazzo\\ProductCustomField\\KazzoProductCustomField",
+		"label": {
+			"de-DE": "Zusätzliches Produktfeld",
+			"en-GB": "Additional product field",
+			"pl-PL": "Pole dodatkowe produktu"
+		},
+		"description": {	
+			"de-DE": "Fügt ein zusätzliches Feld auf der Produktkarte hinzu",
+			"en-GB": "Adds an additional field on the product card",
+			"pl-PL": "Dodaje dodatkowe pole na karcie produktu"		
+		}
+	}
+	
+}

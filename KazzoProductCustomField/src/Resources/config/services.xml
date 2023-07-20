@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+		       
+        <service id="Kazzo\ProductCustomField\Subscriber\Subscriber">
+			<argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
+            <tag name="kernel.event_subscriber"/>
+        </service>
+        
+        <service id="Kazzo\ProductCustomField\Core\Content\ProductCustomField\ProductCustomFieldEntityDefinition">
+            <tag name="shopware.entity.definition" entity="kazzo_productcustomfield" />
+        </service>
+         
+        <service id="Kazzo\ProductCustomField\Extension\Content\Product\ProductCustomFieldExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Kazzo\ProductCustomField\Extension\Content\Product\ProductCustomFieldExtensionDefinition">
+            <tag name="shopware.entity.definition" entity="kazzo_product_custom_field_extension" />
+        </service>
+        
+<!--
+        <service id="Kazzo\ProductCustomField\Service\DalService" >
+            <argument type="service" id="product.repository"/>
+        </service>
+                    
+        <service id="Kazzo\ProductCustomField\Service\WritingData" >
+            <argument type="service" id="product.repository"/>
+        </service>
+                          
+        <service id="Kazzo\ProductCustomField\Service\AddDataToPage" >
+            <tag name="kernel.event_subscriber" />
+        </service>     
+           
+-->                    
+ 
+         <service id="Kazzo\ProductCustomField\Core\Content\ProductCustomField\SalesChannel\ProductCustomFieldRoute" >
+			<argument type="service" id="kazzo_product-custom-field.repository"/>
+        </service>        
+        
+        <service id="Kazzo\ProductCustomField\Storefront\Controller\ProductCustomFieldController" >
+            <argument type="service" id="Kazzo\ProductCustomField\Core\Content\ProductCustomField\SalesChannel\ProductCustomFieldRoute"/>
+        </service>
+          
+        <!-- service id="Kazzo\ProductCustomField\Storefront\Controller\ProductCustomFieldController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service -->            
+                
+    </services>
+</container>
